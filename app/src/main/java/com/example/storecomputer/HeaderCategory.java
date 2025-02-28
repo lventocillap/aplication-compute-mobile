@@ -9,28 +9,22 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link NavigatorBottom#newInstance} factory method to
+ * Use the {@link HeaderCategory#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NavigatorBottom extends Fragment {
+public class HeaderCategory extends Fragment {
 
-    private MainActivity mainActivity; // Referencia a MainActivity
+    private OnNavigationItemSelectedListener listener;
 
-    public void setInstance(MainActivity mainActivity) {
-        this.mainActivity = mainActivity;
+    public interface OnNavigationItemSelectedListener {
+        void onNavigationItemSelected(int buttonId);
     }
-
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private FrameLayout header;
-    private BottomNavigationView bottomNavigationView;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -38,7 +32,7 @@ public class NavigatorBottom extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public NavigatorBottom() {
+    public HeaderCategory() {
         // Required empty public constructor
     }
 
@@ -48,11 +42,11 @@ public class NavigatorBottom extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment NavigatorBottom.
+     * @return A new instance of fragment HeaderCategory.
      */
     // TODO: Rename and change types and number of parameters
-    public static NavigatorBottom newInstance(String param1, String param2) {
-        NavigatorBottom fragment = new NavigatorBottom();
+    public static HeaderCategory newInstance(String param1, String param2) {
+        HeaderCategory fragment = new HeaderCategory();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -72,16 +66,8 @@ public class NavigatorBottom extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_navigator_bottom, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_header_category, container, false);
 
-        if (mainActivity != null) {
-            // Configurar botones para cambiar el header
-            view.findViewById(R.id.btnHome).setOnClickListener(v -> mainActivity.updateHeader(new HeaderHome()));
-            view.findViewById(R.id.btnCategories).setOnClickListener(v -> mainActivity.updateHeader(new HeaderCategory()));
-
-        }
-        return view;
     }
-
-
 }
