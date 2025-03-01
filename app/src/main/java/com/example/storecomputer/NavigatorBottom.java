@@ -20,10 +20,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
  */
 public class NavigatorBottom extends Fragment {
 
-    private MainActivity mainActivity; // Referencia a MainActivity
+    private HomePage homePage; // Referencia a MainActivity
 
-    public void setInstance(MainActivity mainActivity) {
-        this.mainActivity = mainActivity;
+    public void setInstance(HomePage homePage) {
+        this.homePage = homePage;
     }
 
 
@@ -74,10 +74,10 @@ public class NavigatorBottom extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_navigator_bottom, container, false);
 
-        if (mainActivity != null) {
+        if (homePage != null) {
             // Configurar botones para cambiar el header
-            view.findViewById(R.id.btnHome).setOnClickListener(v -> mainActivity.updateHeader(new HeaderHome()));
-            view.findViewById(R.id.btnCategories).setOnClickListener(v -> mainActivity.updateHeader(new HeaderCategory()));
+            view.findViewById(R.id.btnHome).setOnClickListener(v -> homePage.updateHeader(new HeaderHome()));
+            view.findViewById(R.id.btnCategories).setOnClickListener(v -> homePage.updateHeader(new HeaderCategory()));
 
         }
         return view;

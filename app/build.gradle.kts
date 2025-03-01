@@ -29,10 +29,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
     implementation("com.github.bumptech.glide:glide:4.15.1")
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
     annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
     implementation ("com.android.volley:volley:1.2.1")
     implementation ("androidx.core:core:1.12.0")

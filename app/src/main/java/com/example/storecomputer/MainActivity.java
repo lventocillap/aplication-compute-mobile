@@ -1,7 +1,8 @@
 package com.example.storecomputer;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.FrameLayout;
+import android.os.Handler;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,36 +11,22 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
-        if (savedInstanceState == null) {
-            updateFragments(new HeaderHome(), new FragmentPromotion());
-
-            // Crear instancia de NavigatorBottom
-            NavigatorBottom navigatorBottom = new NavigatorBottom();
-            navigatorBottom.setInstance(this); // Pasar MainActivity al fragmento
-
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.bottom_nav_fragment, navigatorBottom)
-                    .commit();
-        }
-    }
-    public void updateHeader(Fragment headerFragment) {
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_header, headerFragment)
-                .commit();
-    }
-    public void updateFragments(Fragment headerFragment, Fragment contentFragment) {
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_header, headerFragment)
-                .replace(R.id.fragment_content, contentFragment)
-                .commit();
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+        Handler handler = new Handler();
+        handler.postDelayed(()->{
+            startActivity(new Intent(MainActivity.this, HomePage.class));
+            finish();
+        }, 1000);
     }
 }
