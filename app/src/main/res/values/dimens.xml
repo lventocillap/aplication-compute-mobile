@@ -2,4 +2,6 @@
       <dimen name="fab_margin">16dp</dimen>
     <dimen name="widthImageCategory">40dp</dimen>
     <dimen name="heightImageCategory">40dp</dimen>
+    <dimen name="widthCardCategory">190dp</dimen>
+    <dimen name="heightCardCategory">100dp</dimen>
    </resources>

@@ -19,8 +19,8 @@
 
             <LinearLayout
                 android:id="@+id/btnMonitor"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/widthCardCategory"
+                android:layout_height="@dimen/heightCardCategory"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
                 android:clickable="true"
@@ -47,8 +47,8 @@
 
             <LinearLayout
                 android:id="@+id/btnPower"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/widthCardCategory"
+                android:layout_height="@dimen/heightCardCategory"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
                 android:clickable="true"
@@ -75,8 +75,8 @@
 
             <LinearLayout
                 android:id="@+id/btnGraph"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/widthCardCategory"
+                android:layout_height="@dimen/heightCardCategory"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
                 android:clickable="true"
@@ -103,8 +103,8 @@
 
             <LinearLayout
                 android:id="@+id/btnAlmac"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/widthCardCategory"
+                android:layout_height="@dimen/heightCardCategory"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
                 android:clickable="true"
@@ -131,8 +131,8 @@
 
             <LinearLayout
                 android:id="@+id/btnCase"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/widthCardCategory"
+                android:layout_height="@dimen/heightCardCategory"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
                 android:clickable="true"
@@ -156,10 +156,11 @@
                     android:textColor="@color/textCategory"
                     android:textSize="18sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/btnMouse"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/widthCardCategory"
+                android:layout_height="@dimen/heightCardCategory"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
                 android:clickable="true"
@@ -192,8 +193,8 @@
 
             <LinearLayout
                 android:id="@+id/btnProces"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/widthCardCategory"
+                android:layout_height="@dimen/heightCardCategory"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
                 android:clickable="true"
@@ -220,8 +221,8 @@
 
             <LinearLayout
                 android:id="@+id/btnMother"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/widthCardCategory"
+                android:layout_height="@dimen/heightCardCategory"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
                 android:clickable="true"
@@ -247,8 +248,8 @@
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/btnRam"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/widthCardCategory"
+                android:layout_height="@dimen/heightCardCategory"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
                 android:clickable="true"
@@ -272,10 +273,11 @@
                     android:textColor="@color/textCategory"
                     android:textSize="18sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/btnDisp"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/widthCardCategory"
+                android:layout_height="@dimen/heightCardCategory"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
                 android:clickable="true"
@@ -302,8 +304,8 @@
 
             <LinearLayout
                 android:id="@+id/btnTecl"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/widthCardCategory"
+                android:layout_height="@dimen/heightCardCategory"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
                 android:clickable="true"
@@ -330,8 +332,8 @@
 
             <LinearLayout
                 android:id="@+id/btnAudi"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/widthCardCategory"
+                android:layout_height="@dimen/heightCardCategory"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
                 android:clickable="true"

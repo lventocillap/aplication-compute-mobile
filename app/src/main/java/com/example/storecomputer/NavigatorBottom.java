@@ -82,6 +82,4 @@ public class NavigatorBottom extends Fragment {
         }
         return view;
     }
-
-
 }
