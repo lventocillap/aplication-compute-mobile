@@ -58,3 +58,4 @@ public class PromotionAdapter extends RecyclerView.Adapter<PromotionAdapter.View
         }
     }
 }
+

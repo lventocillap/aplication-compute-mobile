@@ -81,8 +81,10 @@ public class FragmentPromotion extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace(); // Imprime el error completo en Logcat
-                        Toast.makeText(getContext(), "Compruebe su conexion a internet", Toast.LENGTH_LONG).show();
+                        error.printStackTrace(); // Imprime el error en Logcat
+                        if (getActivity() != null) {
+                            Toast.makeText(getActivity(), "Compruebe su conexión a internet", Toast.LENGTH_LONG).show();
+                        }
                     }
                 });
 

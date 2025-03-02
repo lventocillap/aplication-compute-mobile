@@ -76,8 +76,8 @@ public class NavigatorBottom extends Fragment {
 
         if (homePage != null) {
             // Configurar botones para cambiar el header
-            view.findViewById(R.id.btnHome).setOnClickListener(v -> homePage.updateHeader(new HeaderHome()));
-            view.findViewById(R.id.btnCategories).setOnClickListener(v -> homePage.updateHeader(new HeaderCategory()));
+            view.findViewById(R.id.btnHome).setOnClickListener(v -> homePage.updateFragments(new HeaderHome(), new FragmentPromotion()));
+            view.findViewById(R.id.btnCategories).setOnClickListener(v -> homePage.updateFragments(new HeaderCategory(), new ContendCategory()));
 
         }
         return view;

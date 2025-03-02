@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         Handler handler = new Handler();
         handler.postDelayed(()->{
             startActivity(new Intent(MainActivity.this, HomePage.class));
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             finish();
-        }, 1000);
+        }, 1500);
     }
 }
