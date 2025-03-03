@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2F2F2"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Imagen de usuario -->
+
+        <!-- Campo Usuario -->
+
+        <ImageView
+            android:id="@+id/ivUserIcon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:contentDescription="User Icon"
+            android:src="@drawable/user" />
+
+        <EditText
+            android:id="@+id/etUsuario"
+            android:layout_width="239dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/input_style"
+            android:hint="Usuario"
+            android:padding="12dp"
+            android:textColorHint="#AAAAAA" />
+
+        <!-- Campo Contraseña -->
+        <EditText
+            android:id="@+id/etContrasena"
+            android:layout_width="239dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/input_style"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textColorHint="#AAAAAA" />
+
+        <!-- Botón Iniciar Sesión -->
+
+        <!-- Botón Registro -->
+
+        <Button
+            android:id="@+id/btnIniciarSesion"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#444444"
+            android:stateListAnimator="@null"
+            android:text="Iniciar Sesión"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnRegistro"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#CCCCCC"
+            android:stateListAnimator="@null"
+            android:text="Registro"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</FrameLayout>
