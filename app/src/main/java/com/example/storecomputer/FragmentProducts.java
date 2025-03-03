@@ -38,6 +38,7 @@ public class FragmentProducts extends Fragment {
     private ProductAdapter productAdapter;
     private List<Product> productList;
     private String category;
+    private HomePage homePage;
     private static final String API_URL = "http://192.168.100.80:8000/api/category/product/?category=";
 
     public FragmentProducts() {
@@ -57,6 +58,9 @@ public class FragmentProducts extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             category = getArguments().getString("category"); // Obtener la categoría de los argumentos
+        }
+        if (getActivity() instanceof HomePage) {
+            homePage = (HomePage) getActivity();
         }
     }
 
@@ -101,7 +105,7 @@ public class FragmentProducts extends Fragment {
                                     String manufacturerUrl = productObject.getString("manufacturer_information_url");
                                     String description = productObject.getString("description");
                                     double price = productObject.getDouble("price");
-                                    String image = productObject.getString("image");
+                                    String image = productObject.getJSONObject("image").getString("url");
 
                                     productList.add(new Product(id, name, brand, status, stock, manufacturerUrl, description, price, image));
                                 }
@@ -121,7 +125,6 @@ public class FragmentProducts extends Fragment {
                         }
                     }
                 });
-
         queue.add(request);
     }
 }
