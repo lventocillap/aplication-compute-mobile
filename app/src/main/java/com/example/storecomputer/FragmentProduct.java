@@ -107,7 +107,7 @@ public class FragmentProduct extends Fragment {
                                 urlManufacturer = manufacturer;
 
                                 String[] descriptionDetail = description.split(",");
-                                StringBuilder concatDesc = new StringBuilder("\n");
+                                StringBuilder concatDesc = new StringBuilder("");
                                 for (String desc : descriptionDetail) {
                                     concatDesc.append(desc).append("\n");
                                 }
@@ -139,5 +139,7 @@ public class FragmentProduct extends Fragment {
                 });
 
         queue.add(request);
+
     }
+
 }

@@ -1,9 +1,7 @@
 package com.example.storecomputer;
 
-import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,16 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HeaderCategory#newInstance} factory method to
+ * Use the {@link ErrorInternet#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HeaderCategory extends Fragment {
-
-    private OnNavigationItemSelectedListener listener;
-
-    public interface OnNavigationItemSelectedListener {
-        void onNavigationItemSelected(int buttonId);
-    }
+public class ErrorInternet extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,7 +24,7 @@ public class HeaderCategory extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public HeaderCategory() {
+    public ErrorInternet() {
         // Required empty public constructor
     }
 
@@ -42,11 +34,11 @@ public class HeaderCategory extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HeaderCategory.
+     * @return A new instance of fragment ErrorInternet.
      */
     // TODO: Rename and change types and number of parameters
-    public static HeaderCategory newInstance(String param1, String param2) {
-        HeaderCategory fragment = new HeaderCategory();
+    public static ErrorInternet newInstance(String param1, String param2) {
+        ErrorInternet fragment = new ErrorInternet();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,7 +59,6 @@ public class HeaderCategory extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_header_category, container, false);
-
+        return inflater.inflate(R.layout.fragment_error_internet, container, false);
     }
 }

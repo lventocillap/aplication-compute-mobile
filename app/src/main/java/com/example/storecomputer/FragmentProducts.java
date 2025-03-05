@@ -121,10 +121,17 @@ public class FragmentProducts extends Fragment {
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace(); // Imprime el error en Logcat
                         if (getActivity() != null) {
+                            updateContend(new ErrorInternet());
                             Toast.makeText(getActivity(), "Compruebe su conexión a internet", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
         queue.add(request);
+    }
+    private void updateContend(Fragment contentFragment) {
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_content, contentFragment)
+                .addToBackStack(null) // Para que pueda volver atrás con el botón de retroceso
+                .commit();
     }
 }

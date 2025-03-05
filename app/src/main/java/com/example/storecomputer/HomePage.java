@@ -2,16 +2,9 @@
 package com.example.storecomputer;
 
 import android.os.Bundle;
-import android.widget.FrameLayout;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomePage extends AppCompatActivity{
 
@@ -19,9 +12,9 @@ public class HomePage extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-
+        Header headerHome = new Header();
         if (savedInstanceState == null) {
-            updateFragments(new HeaderHome(), new FragmentPromotion());
+            updateFragments(headerHome.setTitle("Novedades"), new FragmentPromotion());
 
             // Crear instancia de NavigatorBottom
             NavigatorBottom navigatorBottom = new NavigatorBottom();

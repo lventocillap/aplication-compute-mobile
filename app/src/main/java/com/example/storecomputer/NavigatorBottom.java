@@ -3,7 +3,6 @@ package com.example.storecomputer;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -11,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.example.storecomputer.Api.VerificationUser;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
@@ -74,10 +74,40 @@ public class NavigatorBottom extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_navigator_bottom, container, false);
 
+        Header headerCategory = new Header();
+        Header headerHome = new Header();
+        Header headerLogin = new Header();
+        Header headerError = new Header();
+
+
         if (homePage != null) {
             // Configurar botones para cambiar el header
-            view.findViewById(R.id.btnHome).setOnClickListener(v -> homePage.updateFragments(new HeaderHome(), new FragmentPromotion()));
-            view.findViewById(R.id.btnCategories).setOnClickListener(v -> homePage.updateFragments(new HeaderCategory(), new ContendCategory()));
+            view.findViewById(R.id.btnHome).setOnClickListener(v -> homePage.updateFragments(headerHome.setTitle("Novedades"), new FragmentPromotion()));
+            view.findViewById(R.id.btnCategories).setOnClickListener(v -> homePage.updateFragments(headerCategory.setTitle("Categorias"), new ContendCategory()));
+            view.findViewById(R.id.btnProfile).setOnClickListener(v -> {
+                System.out.println("Presionó el botón de perfil");
+
+                Context context = v.getContext();
+                String token = VerificationUser.getAuthToken(context);
+
+                System.out.println("Token obtenido: " + token); // 🔍 Verifica el token en consola
+
+                if (token != null && !token.isEmpty()) { // ✅ Se verifica correctamente el token
+                    VerificationUser verificationUser = new VerificationUser();
+                    verificationUser.verifyUser(token, isSuccess -> {
+                        if (isSuccess) {
+                            System.out.println("Token válido, mostrando User");
+                            homePage.updateFragments(headerLogin.setTitle("Usuario"), new User());
+                        } else {
+                            System.out.println("Token inválido, redirigiendo a Login...");
+                            homePage.updateFragments(headerError.setTitle("Login"), new Login());
+                        }
+                    });
+                } else {
+                    System.out.println("No hay token, redirigiendo a Login...");
+                    homePage.updateFragments(headerError.setTitle("Login"), new Login());
+                }
+            });
 
         }
         return view;
