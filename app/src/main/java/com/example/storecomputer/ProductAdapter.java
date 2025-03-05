@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -47,7 +46,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
             if (context instanceof HomePage) {  // Verifica que el contexto sea HomePage
                 HomePage homePage = (HomePage) context;
-                homePage.updateFragments(new HeaderCategory(), fragment); // Actualiza el header y contenido
+                homePage.updateFragments(new Header(), fragment); // Actualiza el header y contenido
             }
         });
     }

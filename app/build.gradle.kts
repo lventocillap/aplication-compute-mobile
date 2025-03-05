@@ -36,6 +36,9 @@ android {
 
 dependencies {
     implementation("com.github.bumptech.glide:glide:4.15.1")
+    implementation ("androidx.core:core-ktx:1.6.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation ("com.google.code.gson:gson:2.8.9")
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")

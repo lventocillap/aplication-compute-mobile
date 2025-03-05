@@ -8,9 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ContendCategory#newInstance} factory method to
@@ -59,7 +56,7 @@ public class ContendCategory extends Fragment {
     private void setupCategoryButton(View view, int buttonId, String categoryName) {
         view.findViewById(buttonId).setOnClickListener(v -> {
             if (homePage != null) {
-                homePage.updateFragments(new HeaderCategory(), FragmentProducts.newInstance(categoryName));
+                homePage.updateFragments(new Header(), FragmentProducts.newInstance(categoryName));
             }
         });
     }
