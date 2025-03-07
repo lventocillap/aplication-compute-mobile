@@ -78,38 +78,47 @@ public class NavigatorBottom extends Fragment {
         Header headerHome = new Header();
         Header headerLogin = new Header();
         Header headerError = new Header();
+        Header headerShop = new Header();
 
 
         if (homePage != null) {
             // Configurar botones para cambiar el header
             view.findViewById(R.id.btnHome).setOnClickListener(v -> homePage.updateFragments(headerHome.setTitle("Novedades"), new FragmentPromotion()));
             view.findViewById(R.id.btnCategories).setOnClickListener(v -> homePage.updateFragments(headerCategory.setTitle("Categorias"), new ContendCategory()));
+            view.findViewById(R.id.btnShoping).setOnClickListener(v -> {
+                Context contextShop = v.getContext();
+                verificationLogin(contextShop, headerLogin, new FragmentListWish(), "Compras");
+            });
             view.findViewById(R.id.btnProfile).setOnClickListener(v -> {
                 System.out.println("Presionó el botón de perfil");
-
                 Context context = v.getContext();
-                String token = VerificationUser.getAuthToken(context);
+                verificationLogin(context, headerLogin, new User(), "usuario");
 
-                System.out.println("Token obtenido: " + token); // 🔍 Verifica el token en consola
-
-                if (token != null && !token.isEmpty()) { // ✅ Se verifica correctamente el token
-                    VerificationUser verificationUser = new VerificationUser();
-                    verificationUser.verifyUser(token, isSuccess -> {
-                        if (isSuccess) {
-                            System.out.println("Token válido, mostrando User");
-                            homePage.updateFragments(headerLogin.setTitle("Usuario"), new User());
-                        } else {
-                            System.out.println("Token inválido, redirigiendo a Login...");
-                            homePage.updateFragments(headerError.setTitle("Login"), new Login());
-                        }
-                    });
-                } else {
-                    System.out.println("No hay token, redirigiendo a Login...");
-                    homePage.updateFragments(headerError.setTitle("Login"), new Login());
-                }
             });
 
         }
         return view;
+    }
+    public void verificationLogin(Context context, Header header, Fragment fragmentContend, String headerName)
+    {
+
+        String token = VerificationUser.getAuthToken(context);
+        System.out.println("Token obtenido: " + token); // 🔍 Verifica el token en consola
+
+        if (token != null && !token.isEmpty()) { // ✅ Se verifica correctamente el token
+            VerificationUser verificationUser = new VerificationUser();
+            verificationUser.verifyUser(token, isSuccess -> {
+                if (isSuccess) {
+                    System.out.println("Token válido, mostrando User");
+                    homePage.updateFragments(header.setTitle(headerName), fragmentContend);
+                } else {
+                    System.out.println("Token inválido, redirigiendo a Login...");
+                    homePage.updateFragments(header.setTitle("Login"), new Login());
+                }
+            });
+        } else {
+            System.out.println("No hay token, redirigiendo a Login...");
+            homePage.updateFragments(header.setTitle("Login"), new Login());
+        }
     }
 }

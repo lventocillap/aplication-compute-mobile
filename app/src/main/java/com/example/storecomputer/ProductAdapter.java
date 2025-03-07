@@ -43,7 +43,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         holder.btnProduc.setOnClickListener(view -> {
             FragmentProduct fragment = FragmentProduct.newInstance(product.getId());
-
             if (context instanceof HomePage) {  // Verifica que el contexto sea HomePage
                 HomePage homePage = (HomePage) context;
                 homePage.updateFragments(new Header(), fragment); // Actualiza el header y contenido

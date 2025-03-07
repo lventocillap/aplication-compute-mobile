@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_margin="10dp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:background="@drawable/border_product"
+    android:padding="10dp">
+
+    <!-- Imagen del producto -->
+
+    <!-- Contenedor de texto -->
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgProductListWish"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/prueba" />
+
+        <LinearLayout
+            android:layout_marginStart="10dp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/txtProductId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="12345" />
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="MONITOR ASUS TUF GAMING VG249Q1A 23.8"/>
+
+            <TextView
+                android:id="@+id/txtPrice"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#169E70"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S/1800"/>
+
+            <TextView
+                android:id="@+id/txtAmount"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cantidad: 5"/>
+        </LinearLayout>
+
+        <!-- Botón eliminar producto -->
+        <ImageButton
+            android:id="@+id/btnDeleteProduct"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_menu_close_clear_cancel" />
+    </LinearLayout>
+
+</LinearLayout>
