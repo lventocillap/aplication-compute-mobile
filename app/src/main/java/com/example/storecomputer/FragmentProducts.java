@@ -107,7 +107,7 @@ public class FragmentProducts extends Fragment {
                                     double price = productObject.getDouble("price");
                                     String image = productObject.getJSONObject("image").getString("url");
 
-                                    productList.add(new Product(id, name, brand, status, stock, manufacturerUrl, description, price, image));
+                                    productList.add(new Product(id, name, brand, status, stock, manufacturerUrl, description, price, image, 0));
                                 }
                             }
                         } catch (JSONException e) {

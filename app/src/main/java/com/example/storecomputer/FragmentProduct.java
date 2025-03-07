@@ -21,11 +21,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.example.storecomputer.Model.Product;
+import com.example.storecomputer.Api.SaleProduct;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,7 +36,7 @@ import org.json.JSONObject;
 public class FragmentProduct extends Fragment {
 
     private static final String PRODUCT_ID = "productId";
-    private TextView txtName, txtPrice, txtDescription, txtBrand, txtStock, txtManufacturer, txtStatus;
+    private TextView txtName, txtPrice, txtDescription, txtBrand, txtStock, txtManufacturer, txtStatus, txtId;
     private ImageView imgProduct;
     private int productId;
     private static final String API_URL = "http://192.168.100.80:8000/api/product/";
@@ -68,6 +69,23 @@ public class FragmentProduct extends Fragment {
         View view = inflater.inflate(R.layout.fragment_product, container, false);
 
         Button btnInformation = view.findViewById(R.id.btnInformation);
+        Button btnSaleProduct = view.findViewById(R.id.btnSale);
+
+        btnSaleProduct.setOnClickListener(v -> {
+            new Thread(() -> {
+                try {
+                    Header headerSale = new Header();
+                    SaleProduct saleProduct = new SaleProduct();
+                    String response = saleProduct.postWishlistItem(Integer.parseInt(txtId.getText().toString()), getContext());
+                    updateContent(new FragmentListWish(), headerSale.setTitle("Compras"));
+                } catch (IOException e) {
+                    Header headerLogin = new Header();
+                    updateContent(new Login(), headerLogin.setTitle("Login"));
+                    e.printStackTrace();
+                }
+            }).start();
+        });
+
         btnInformation.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlManufacturer));
             startActivity(intent);
@@ -80,6 +98,7 @@ public class FragmentProduct extends Fragment {
         txtStock = view.findViewById(R.id.txtStock);
         imgProduct = view.findViewById(R.id.imgProduct);
         txtStatus = view.findViewById(R.id.txtStatus);
+        txtId = view.findViewById(R.id.txtProductId);
         loadProductFromAPI();
         return view;
     }
@@ -95,6 +114,7 @@ public class FragmentProduct extends Fragment {
                                 JSONObject productObject = response.getJSONObject("data");
 
                                 // Extraer valores de la API
+                                int id = productObject.getInt("id");
                                 String name = productObject.getString("name");
                                 double price = productObject.getDouble("price");
                                 String brand = productObject.getString("brand");
@@ -111,7 +131,7 @@ public class FragmentProduct extends Fragment {
                                 for (String desc : descriptionDetail) {
                                     concatDesc.append(desc).append("\n");
                                 }
-                                
+                                txtId.setText(String.valueOf(id));
                                 txtName.setText(name);
                                 txtBrand.setText("Marca: "+brand);
                                 txtStock.setText("Stock: "+stock);
@@ -140,6 +160,13 @@ public class FragmentProduct extends Fragment {
 
         queue.add(request);
 
+    }
+    private void updateContent(Fragment contentFragment, Fragment header) {
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_content, contentFragment)
+                .replace(R.id.fragment_header, header)
+                .addToBackStack(null)
+                .commit();
     }
 
 }
