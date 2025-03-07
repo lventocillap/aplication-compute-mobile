@@ -34,7 +34,7 @@ import okhttp3.Response;
  */
 public class User extends Fragment {
 
-    private TextView textViewName, textViewEmail;
+    private TextView textViewName, textViewEmail, textCellphone, textDirecction;
     private Button btnClose;
     private static final String API_URL = "http://192.168.100.80:8000/api/user";
     private static final String LOGOUT_URL = "http://192.168.100.80:8000/api/logout";
@@ -87,6 +87,8 @@ public class User extends Fragment {
         textViewName = view.findViewById(R.id.txtUsername);
         textViewEmail = view.findViewById(R.id.txtEmial);
         btnClose = view.findViewById(R.id.btnCloseSesion);
+        textCellphone = view.findViewById(R.id.txtCellphone);
+        textDirecction = view.findViewById(R.id.txtDirecction);
 
         btnClose.setOnClickListener(v ->{
             logout();
@@ -134,9 +136,13 @@ public class User extends Fragment {
                         JSONObject userData = jsonObject.getJSONObject("data");
                         String name = userData.getString("name");
                         String email = userData.getString("email");
+                        String cellphone = userData.getJSONObject("profile").getString("cellphone");
+                        String direection = userData.getJSONObject("profile").getString("direcction");
 
                         if (getActivity() != null) {
                             getActivity().runOnUiThread(() -> {
+                                textCellphone.setText("Celular: "+cellphone);
+                                textDirecction.setText("Dirección: "+direection);
                                 textViewName.setText(name);
                                 textViewEmail.setText("Email: "+email);
                             });

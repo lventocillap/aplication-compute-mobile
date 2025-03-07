@@ -126,7 +126,8 @@ public class Login extends Fragment {
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
                     getActivity().runOnUiThread(() ->
-                            Toast.makeText(getActivity(), "Error: " + response.code(), Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(getActivity(), "Error: " + response.code(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(getActivity(), "Error: " + "Credenciales invalidas", Toast.LENGTH_SHORT).show()
                     );
                     return;
                 }
