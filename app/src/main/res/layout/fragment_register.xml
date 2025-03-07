@@ -8,14 +8,15 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="245dp"
-        android:layout_height="521dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical">
 
         <EditText
             android:id="@+id/txtUsuario"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
             android:background="@drawable/edittextstyle"
             android:ems="10"
             android:hint=" Usuario"
@@ -24,7 +25,8 @@
         <EditText
             android:id="@+id/txtContraseña"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:padding="12dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:background="@drawable/edittextstyle"
             android:ems="10"
@@ -34,7 +36,8 @@
         <EditText
             android:id="@+id/txtVerificarC"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:padding="12dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:background="@drawable/edittextstyle"
             android:ems="10"
@@ -44,7 +47,8 @@
         <EditText
             android:id="@+id/txtTelefono"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:padding="12dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:background="@drawable/edittextstyle"
             android:ems="10"
@@ -54,7 +58,8 @@
         <EditText
             android:id="@+id/txtDireccion"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:padding="12dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:background="@drawable/edittextstyle"
             android:ems="10"
@@ -62,9 +67,21 @@
             android:inputType="text" />
 
         <EditText
+            android:id="@+id/txtDNI"
+            android:layout_width="match_parent"
+            android:padding="12dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:background="@drawable/edittextstyle"
+            android:ems="10"
+            android:hint=" DNI"
+            android:inputType="text" />
+
+        <EditText
             android:id="@+id/txtCorreo"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:padding="12dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:background="@drawable/edittextstyle"
             android:ems="10"

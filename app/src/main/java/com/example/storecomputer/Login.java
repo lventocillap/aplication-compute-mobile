@@ -39,7 +39,7 @@ public class Login extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private EditText etEmail, etPassword;
     private TextView txtToken;
-    private Button btnLogin;
+    private Button btnLogin, btnRegister;
     private OkHttpClient client;
     private static final String LOGIN_URL = "http://192.168.100.80:8000/api/login";
     private static final String ARG_PARAM1 = "param1";
@@ -88,6 +88,12 @@ public class Login extends Fragment {
         etEmail = view.findViewById(R.id.etUsuario);
         etPassword = view.findViewById(R.id.etContrasena);
         btnLogin = view.findViewById(R.id.btnIniciarSesion);
+        btnRegister  =view.findViewById(R.id.btnRegistro);
+
+        btnRegister.setOnClickListener(v -> {
+            Header headerRegister = new Header();
+             updateFragments(headerRegister.setTitle("Registrarse"), new Register());
+        });
 
         client = new OkHttpClient();
 
