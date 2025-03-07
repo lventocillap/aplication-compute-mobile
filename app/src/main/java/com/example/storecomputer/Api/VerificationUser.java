@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.storecomputer.EnumAPI.APIEnum;
 import com.example.storecomputer.R;
 
 import java.io.IOException;
@@ -38,7 +39,7 @@ public class VerificationUser extends Fragment{
             }
 
             Request request = new Request.Builder()
-                    .url("http://192.168.100.80:8000/api/verification")
+                    .url(APIEnum.DOMAIN.getUrl()+"/api/verification")
                     .addHeader("Authorization", token) // Asegurar formato correcto
                     .get()
                     .build();

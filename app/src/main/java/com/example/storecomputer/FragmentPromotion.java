@@ -19,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.storecomputer.EnumAPI.APIEnum;
 import com.example.storecomputer.Model.Promotion;
 
 import org.json.JSONArray;
@@ -34,7 +35,7 @@ public class FragmentPromotion extends Fragment {
     private PromotionAdapter adapter;
     private List<Promotion> promotionsList;
 
-    private static final String API_URL = "http://192.168.100.80:8000/api/promotion"; //Reemplaza con la URL real
+    private static final String API_URL = APIEnum.DOMAIN.getUrl()+"/api/promotion"; //Reemplaza con la URL real
 
     @Nullable
     @Override

@@ -3,6 +3,8 @@ package com.example.storecomputer.Api;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.storecomputer.EnumAPI.APIEnum;
+
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -11,7 +13,7 @@ import okhttp3.Response;
 import java.io.IOException;
 
 public class SaleProduct {
-    private static final String BASE_URL = "http://192.168.100.80:8000/api/wishlist/";
+    private static final String BASE_URL = APIEnum.DOMAIN.getUrl()+"/api/wishlist/";
     private final OkHttpClient client;
 
     public SaleProduct() {

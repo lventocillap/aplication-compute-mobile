@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.storecomputer.Api.GenerateSaleEmailPDF;
 import com.example.storecomputer.Api.SaleProduct;
 import com.example.storecomputer.Api.VerificationUser;
+import com.example.storecomputer.EnumAPI.APIEnum;
 import com.example.storecomputer.Model.Product;
 
 import org.json.JSONArray;
@@ -51,7 +52,7 @@ public class FragmentListWish extends Fragment {
     private ListWishAdapter listWishAdapter;
     private List<Product> productList;
     private TextView amount;
-    private static final String API_URL = "http://192.168.100.80:8000/api/wishlist";
+    private static final String API_URL = APIEnum.DOMAIN.getUrl()+"/api/wishlist";
     private OkHttpClient client;
     private ExecutorService executorService;
 

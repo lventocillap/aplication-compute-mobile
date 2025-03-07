@@ -3,6 +3,8 @@ package com.example.storecomputer.Api;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.storecomputer.EnumAPI.APIEnum;
+
 import java.io.IOException;
 
 import okhttp3.MediaType;
@@ -12,7 +14,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class GenerateSaleEmailPDF{
-    private static final String BASE_URL = "http://192.168.100.80:8000/api/sale";
+    private static final String BASE_URL = APIEnum.DOMAIN.getUrl()+"/api/sale";
     private final OkHttpClient client;
 
     public GenerateSaleEmailPDF() {

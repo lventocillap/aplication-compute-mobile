@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.storecomputer.EnumAPI.APIEnum;
 import com.example.storecomputer.Model.Product;
 import com.example.storecomputer.Model.Promotion;
 
@@ -39,7 +40,7 @@ public class FragmentProducts extends Fragment {
     private List<Product> productList;
     private String category;
     private HomePage homePage;
-    private static final String API_URL = "http://192.168.100.80:8000/api/category/product/?category=";
+    private static final String API_URL = APIEnum.DOMAIN.getUrl()+"/api/category/product/?category=";
 
     public FragmentProducts() {
         // Required empty public constructor

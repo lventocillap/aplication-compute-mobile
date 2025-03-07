@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.storecomputer.EnumAPI.APIEnum;
+
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -34,7 +36,7 @@ public class Register extends Fragment {
 
     private EditText textUser, textPassword, textPasswordVerified, textCellphone, textDirecction, texDNI, textEmail;
     private Button btnRegister;
-    private static final String URL = "http://192.168.100.80:8000/api/register/user";
+    private static final String URL = APIEnum.DOMAIN.getUrl()+"/api/register/user";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

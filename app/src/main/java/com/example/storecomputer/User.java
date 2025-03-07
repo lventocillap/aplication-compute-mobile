@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.storecomputer.Api.VerificationUser;
+import com.example.storecomputer.EnumAPI.APIEnum;
 
 import org.json.JSONObject;
 
@@ -36,8 +37,8 @@ public class User extends Fragment {
 
     private TextView textViewName, textViewEmail, textCellphone, textDirecction;
     private Button btnClose;
-    private static final String API_URL = "http://192.168.100.80:8000/api/user";
-    private static final String LOGOUT_URL = "http://192.168.100.80:8000/api/logout";
+    private static final String API_URL = APIEnum.DOMAIN.getUrl()+"/api/user";
+    private static final String LOGOUT_URL = APIEnum.DOMAIN.getUrl()+"/api/logout";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

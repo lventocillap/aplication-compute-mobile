@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.storecomputer.EnumAPI.APIEnum;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -41,7 +43,7 @@ public class Login extends Fragment {
     private TextView txtToken;
     private Button btnLogin, btnRegister;
     private OkHttpClient client;
-    private static final String LOGIN_URL = "http://192.168.100.80:8000/api/login";
+    private static final String LOGIN_URL = APIEnum.DOMAIN.getUrl()+"/api/login";
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 

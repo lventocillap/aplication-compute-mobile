@@ -22,6 +22,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.storecomputer.Api.SaleProduct;
+import com.example.storecomputer.EnumAPI.APIEnum;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,7 +40,7 @@ public class FragmentProduct extends Fragment {
     private TextView txtName, txtPrice, txtDescription, txtBrand, txtStock, txtManufacturer, txtStatus, txtId;
     private ImageView imgProduct;
     private int productId;
-    private static final String API_URL = "http://192.168.100.80:8000/api/product/";
+    private static final String API_URL = APIEnum.DOMAIN.getUrl()+"/api/product/";
     private String urlManufacturer = "";
 
     public FragmentProduct() {
