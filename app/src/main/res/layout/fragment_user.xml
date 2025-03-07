@@ -73,7 +73,7 @@
 
             <TextView
                 android:id="@+id/txtDirecction"
-                android:layout_width="231dp"
+                android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:text="Dirrección:"
                 android:textColor="#090808"

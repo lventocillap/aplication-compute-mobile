@@ -15,9 +15,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.storecomputer.Api.GenerateSaleEmailPDF;
+import com.example.storecomputer.Api.SaleProduct;
 import com.example.storecomputer.Api.VerificationUser;
 import com.example.storecomputer.Model.Product;
 
@@ -76,6 +79,23 @@ public class FragmentListWish extends Fragment {
         productList = new ArrayList<>();
         listWishAdapter = new ListWishAdapter(productList, getContext());
         recyclerView.setAdapter(listWishAdapter);
+        Context context = getContext();
+        Button btnSale = view.findViewById(R.id.btnGenerateSale);
+            btnSale.setOnClickListener(v -> {
+                new Thread(() -> {
+                    try {
+
+                        GenerateSaleEmailPDF generateSaleEmailPDF = new GenerateSaleEmailPDF();
+                        generateSaleEmailPDF.postGenerateSale(context);
+                        Header headerGenerate = new Header();
+                        updateContent(new AlertSale(), headerGenerate.setTitle("Compra exitosa"));
+                    } catch (IOException e) {
+                        Header headerLogin = new Header();
+                        //updateContent(new Login(), headerLogin.setTitle("Login"));
+                        e.printStackTrace();
+                    }
+                }).start();
+            });
 
         loadProductAPI();
         return view;
@@ -100,7 +120,8 @@ public class FragmentListWish extends Fragment {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 Log.e("API_ERROR", "Error en la API: " + e.getMessage());
-                updateContent(new ErrorInternet());
+                Header header = new Header();
+                updateContent(new ErrorInternet(),  header.setTitle("Error"));
             }
 
             @Override
@@ -171,9 +192,10 @@ public class FragmentListWish extends Fragment {
 
 
 
-    private void updateContent(Fragment contentFragment) {
+    private void updateContent(Fragment contentFragment, Fragment header) {
         requireActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_content, contentFragment)
+                .replace(R.id.fragment_header, header)
                 .addToBackStack(null)
                 .commit();
     }

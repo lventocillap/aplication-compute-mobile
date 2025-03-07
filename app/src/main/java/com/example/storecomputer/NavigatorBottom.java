@@ -87,12 +87,12 @@ public class NavigatorBottom extends Fragment {
             view.findViewById(R.id.btnCategories).setOnClickListener(v -> homePage.updateFragments(headerCategory.setTitle("Categorias"), new ContendCategory()));
             view.findViewById(R.id.btnShoping).setOnClickListener(v -> {
                 Context contextShop = v.getContext();
-                verificationLogin(contextShop, headerLogin, new FragmentListWish(), "Compras");
+                verificationLogin(contextShop, headerShop, new FragmentListWish(), "Compras");
             });
             view.findViewById(R.id.btnProfile).setOnClickListener(v -> {
                 System.out.println("Presionó el botón de perfil");
                 Context context = v.getContext();
-                verificationLogin(context, headerLogin, new User(), "usuario");
+                verificationLogin(context, headerLogin, new User(), "Usuario");
 
             });
 
